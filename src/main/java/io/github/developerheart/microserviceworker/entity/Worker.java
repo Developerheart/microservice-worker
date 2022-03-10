@@ -1,21 +1,19 @@
 package io.github.developerheart.microserviceworker.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.StringJoiner;
 
 @Entity
-@Table(name = "WORKER", schema = "MS_WORKER")
+@Table(name = "WORKER")
 public class Worker implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "WORKER_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(name = "NAME", nullable = false, updatable = true)
